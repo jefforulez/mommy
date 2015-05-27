@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>mommy, i'm sick!  #hackfood2012</title>
+	<meta name="generator" content="BBEdit 10.1" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+var remedies = new Object() ;
+remedies['cold']    = 'Chicken Soup' ;
+remedies['fever']   = 'Chicken Soup' ;
+remedies['stomach'] = 'Chicken Soup' ;
+// remedies['knee']    = 'Chicken Soup' ;
+remedies['knee']    = 'Ice Cream'    ;
+
+
+function onclickAilment( event )
+{
+	var ailment = this.id.replace( 'ailment_', '' ) ;
+	var remedy  = remedies[ ailment ] ;
+
+	$('.remedy_span').html( remedy ) ;
+
+	$('#ice_cream_menu').toggle( ailment == 'knee' ) ;
+	$('#chicken_menu').toggle( ailment != 'knee' ) ;
+
+	$('html, body').animate(
+		{ scrollTop : $("#order_food").offset().top - 100 },
+		750
+	) ;
+
+}
+
+function onclickAction( event )
+{
+	var action = this.id.replace( 'action_', '' ) ;
+
+	if ( action == "vegan" )
+	{
+		$('html, body').animate(
+			{ scrollTop : $("#vegan").offset().top - 100 },
+			750
+		) ;
+	}
+	else if ( action == "fine" )
+	{
+		$('html, body').animate(
+			{ scrollTop : $("#order_food").offset().top - 100 },
+			500
+		) ;
+	}
+	else if ( action == "order" )
+	{
+		$('html, body').animate(
+			{ scrollTop : $("#ordering").offset().top - 100 },
+			750
+		) ;
+
+	}
+
+}
+
+
+$(function() {
+
+	$('#one').click(
+		function ()
+		{
+			$('html, body').animate(
+				{ scrollTop : $("#two").offset().top - 100 },
+				500
+			) ;
+		}
+	) ;
+
+
+	$('#two').click(
+		function ()
+		{
+			$('html, body').animate(
+				{ scrollTop : $("#three").offset().top - 100 },
+				500
+			) ;
+		}
+	) ;
+
+	$('#three').click(
+		function ()
+		{
+			$('html, body').animate(
+				{ scrollTop : $("#select_ailment").offset().top - 100 },
+				500
+			) ;
+		}
+	) ;
+
+
+	$('.ailment').click( onclickAilment ) ;
+	$('.action').click( onclickAction ) ;
+
+	$('#ordering').click(
+		function ()
+		{
+			$('html, body').animate(
+				{ scrollTop : $("#thanks").offset().top - 100 },
+				1000
+			) ;
+		}
+	) ;
+
+	$('#thanks').click(
+		function ()
+		{
+			$('html, body').animate(
+				{ scrollTop : $("#select_ailment").offset().top - 100 },
+				500
+			) ;
+		}
+	) ;
+
+});
+
+</script>
+
+<link href='http://fonts.googleapis.com/css?family=Marcellus+SC' rel='stylesheet' type='text/css'>
+
+<style type="text/css">
+
+body
+{
+	background-color: #9de7f2 ;
+}
+
+p { margin: 5px 0 ; }
+
+#page
+{
+	margin: 0 auto;
+	width: 950px;
+	font-family: 'Marcellus SC', serif ;
+
+}
+
+.remedy_span {
+	font-weight: bold ;
+}
+
+.clear { clear: both ; }
+
+div.mom
+{
+	padding: 40px ;
+	clear: both ;
+	font-size: 32px ;
+	width: 50% ;
+}
+
+div.son
+{
+	padding: 40px ;
+	margin-bottom: 10px ;
+	clear: both ;
+	font-size: 26px ;
+	width: 50% ;
+}
+
+div.ailment_block
+{
+	width: 90% ;
+	padding: 10px 10px 10px 0 ;
+}
+
+
+div.ailment,
+div.action
+{
+	border: 1px grey dotted ;
+	padding: 5px 5px 5px 15px ;
+	margin: 15px 0 ;
+	width: 75% ;
+	border-radius: 12px ;
+	background-color: white ;
+}
+
+div.ailment:hover,
+div.action:hover
+{
+	border: 1px black solid ;
+	cursor: pointer ;
+}
+
+div.action
+{
+	margin-bottom: 10px ;
+}
+
+.section
+{
+	margin-top: 100px ;
+	padding-bottom: 700px ;
+	background-image: url('./background-mom.png') ;
+	background-position: right top ;
+	background-repeat: no-repeat ;
+}
+
+
+</style>
+
+
+</head>
+<body>
+<div id="page">
+
+
+<!--  STEP 0 -->
+
+<div id="one" class="section">
+	<div class="mom">
+
+	<p><b>#HackFood 2012</b></p><br/>
+	<p>
+		@jefforulez<br/>
+		@bellmar<br/>
+		@arielekrantzow<br/>
+	</p>
+
+	</div>
+</div>
+
+<div id="two" class="section">
+
+	<div class="mom" style="width: 75%;">
+	What should you eat when you're sick?
+	</div>
+
+</div>
+
+<div id="three" class="section">
+
+	<div class="mom">
+	<p>you ask</p>
+
+	<br/>
+
+	<p><img src="logo.svg" width="400" /></p>
+
+	<u>M</u>alady-Aware<br/>
+	<u>O</u>nline<br/>
+	<u>M</u>enu<br/>
+	<u>M</u>anager,<br/>
+	<u>Y</u>o
+	</div>
+
+</div>
+
+
+
+<!--  STEP 1 -->
+
+<div id="select_ailment" class="section">
+
+	<div class="mom">
+		<p>Honey, what's wrong?</p>
+		<p>You look pale.</p>
+	</div>
+
+	<div class="son">
+<div class="ailment_block">
+<p style="font-size: 26px ; font-style: italic ;">What is it this time?</p>
+<div class="ailment" id="ailment_cold">I have a cold.</div>
+<div class="ailment" id="ailment_fever">I have a fever.</div>
+<div class="ailment" id="ailment_stomach">I have a stomach ache.</div>
+<div class="ailment" id="ailment_knee">I fell and cut my knee.</div>
+</div>
+	</div>
+
+
+</div>
+
+<!--  STEP 2  -->
+
+<div id="order_food" class="section">
+
+	<div class="mom">
+		<p>Oh honey.</p>
+		<p >Here, order yourself some<br/><span class="remedy_span">Chicken Soup</span>.</p>
+	</div>
+
+	<div id="chicken_menu" style="display: none; font-size: 22px; padding-left: 60px;">
+		<p id="o_restaurent">Harriet's Kitchen</p>
+		<p>1 x <span id="o_dish">Large Chicken Noodle Soup</span></p>
+		<p>4 x Green Gatorades</p>
+		<p><b>Total:</b> <span id="o_total">$24.95</a></p>
+	</div>
+
+	<div id="ice_cream_menu" style="display: none; font-size: 22px; padding-left: 60px;">
+		<p id="o_restaurent">Coldstone Creamery</p>
+		<p>1 x French Vanilla w/ Cookie Dough</span></p>
+		<p><b>Total:</b> <span id="o_total">$4.95</a></p>
+	</div>
+
+	<div class="son">
+		<div id="action_order" class="action">That sounds perfect.</div>
+		<div id="action_vegan" class="action" style="color: red;">Mom. I'm Vegan.</div>
+	</div>
+
+</div>
+
+
+<!--  STEP 2.5  -->
+
+<div id="ordering" class="section">
+
+	<div class="mom" style="text-align: center; padding: 75px 0; width: 60%;">
+	<p>101010101010101010101</p>
+	<p>&nbsp;&nbsp;</p>
+
+	this is where the actual ordering would happen
+	if we had 5 more minutes to work on this.
+
+	<p>&nbsp;&nbsp;</p>
+	<p>101010101010101010101</p>
+	</div>
+
+</div>
+
+
+
+
+<!--  STEP 3  -->
+
+<div id="thanks" class="section">
+
+	<div class="mom">
+		<p>Okay, dear.</p>
+		<p>Your food is on it's way.</p>
+		<br/>
+		<p class="remedy_span" style="font-size: 28px; color:white;">Chicken Soup</p>
+		<p style="font-size: 24px; color:white;">Order #20121006</p>
+		<br/>
+		<p>Call me tomorrow, maybe?</p>
+		<br/>
+		<p>xoxo,</p>
+		<p><img src="logo.svg" width="150" /></p>
+	</div>
+
+	<div class="son">
+	</div>
+
+</div>
+
+
+<!--  STEP V  -->
+
+<div id="vegan" class="section">
+
+	<div class="mom">
+		<p>Vegan?</p>
+		<p>Wait.  What's that?</p>
+		<p>You don't eat vegatables?</p>
+	</div>
+
+	<div class="son">
+		<div id="action_fine" class="action" style="color: red;">Ugh.&nbsp;&nbsp;I'm too sick to explain.</div>
+	</div>
+
+</div>
+
+
+</div>
+</body>
+</html>
